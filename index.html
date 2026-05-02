@@ -9,19 +9,19 @@
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&display=swap');
 
   :root {
-    --bg: #0a0e1a;
-    --surface: #111827;
-    --surface2: #1a2235;
-    --border: #1f2d45;
-    --accent: #3b82f6;
-    --accent2: #06b6d4;
-    --accent3: #f59e0b;
-    --danger: #ef4444;
-    --success: #10b981;
-    --text: #e2e8f0;
+    --bg: #f0f4ff;
+    --surface: #ffffff;
+    --surface2: #f8faff;
+    --border: #dde6f5;
+    --accent: #2563eb;
+    --accent2: #0891b2;
+    --accent3: #d97706;
+    --danger: #dc2626;
+    --success: #059669;
+    --text: #1e293b;
     --text-dim: #64748b;
     --text-muted: #94a3b8;
-    --glow: rgba(59,130,246,0.15);
+    --glow: rgba(37,99,235,0.10);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -40,8 +40,8 @@
     position: fixed;
     inset: 0;
     background-image:
-      linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px);
+      linear-gradient(rgba(37,99,235,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37,99,235,0.06) 1px, transparent 1px);
     background-size: 40px 40px;
     pointer-events: none;
     z-index: 0;
@@ -71,7 +71,7 @@
     font-size: 32px;
     font-weight: 900;
     line-height: 1.1;
-    background: linear-gradient(135deg, #e2e8f0 0%, #60a5fa 100%);
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 60%, #0891b2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -104,9 +104,10 @@
     padding: 20px;
     position: relative;
     overflow: hidden;
-    transition: border-color 0.2s, transform 0.2s;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 12px rgba(37,99,235,0.06);
   }
-  .kpi-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .kpi-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(37,99,235,0.12); }
   .kpi-card::before {
     content: '';
     position: absolute;
@@ -150,6 +151,7 @@
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 24px;
+    box-shadow: 0 2px 12px rgba(37,99,235,0.05);
   }
   .panel-header {
     display: flex;
@@ -235,15 +237,15 @@
     outline: none;
     transition: border-color 0.2s, background 0.2s;
   }
-  select:hover, select:focus { border-color: var(--accent); }
+  select:hover, select:focus { border-color: var(--accent); background: #fff; }
   button {
-    background: rgba(59,130,246,0.1);
-    border-color: rgba(59,130,246,0.3);
+    background: rgba(37,99,235,0.07);
+    border-color: rgba(37,99,235,0.25);
     color: var(--accent);
     font-weight: 600;
     letter-spacing: 0.3px;
   }
-  button:hover { background: rgba(59,130,246,0.2); border-color: var(--accent); }
+  button:hover { background: rgba(37,99,235,0.14); border-color: var(--accent); }
   button.active {
     background: var(--accent);
     color: white;
@@ -266,7 +268,7 @@
     font-size: 12px;
     cursor: pointer;
     border: 1px solid var(--border);
-    color: var(--text-muted);
+    color: var(--text-dim);
     background: var(--surface2);
     transition: all 0.15s;
     white-space: nowrap;
@@ -274,7 +276,7 @@
   .chip.selected {
     border-color: var(--accent);
     color: var(--accent);
-    background: rgba(59,130,246,0.1);
+    background: rgba(37,99,235,0.08);
   }
   .chip:hover { border-color: var(--accent2); color: var(--accent2); }
 
@@ -301,7 +303,7 @@
     color: white;
     background: var(--accent);
   }
-  .city-btn:hover:not(.active) { border-color: var(--accent2); color: var(--accent2); }
+  .city-btn:hover:not(.active) { border-color: var(--accent2); color: var(--accent2); background: #fff; }
 
   /* HEATMAP */
   .heatmap-grid {
@@ -336,8 +338,8 @@
   /* SCROLL */
   .scroll-container { overflow-y: auto; max-height: 380px; }
   .scroll-container::-webkit-scrollbar { width: 4px; }
-  .scroll-container::-webkit-scrollbar-track { background: var(--surface2); }
-  .scroll-container::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  .scroll-container::-webkit-scrollbar-track { background: #f1f5f9; }
+  .scroll-container::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
 
   /* LEGEND */
   .legend {
@@ -353,7 +355,7 @@
   /* TOOLTIP */
   .tooltip {
     position: fixed;
-    background: var(--surface);
+    background: #fff;
     border: 1px solid var(--border);
     padding: 8px 12px;
     border-radius: 8px;
@@ -361,7 +363,8 @@
     pointer-events: none;
     z-index: 1000;
     display: none;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 20px rgba(37,99,235,0.12);
+    color: var(--text);
   }
 
   /* SECTION DIVIDER */
@@ -723,12 +726,13 @@ function renderLineChart() {
       plugins: {
         legend: { display: false },
         tooltip: {
-          backgroundColor: '#111827',
-          borderColor: '#1f2d45',
+          backgroundColor: '#ffffff',
+          borderColor: '#dde6f5',
           borderWidth: 1,
-          titleColor: '#94a3b8',
-          bodyColor: '#e2e8f0',
+          titleColor: '#64748b',
+          bodyColor: '#1e293b',
           padding: 12,
+          boxShadow: '0 4px 12px rgba(37,99,235,0.1)',
           callbacks: {
             label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}%`
           }
@@ -736,12 +740,12 @@ function renderLineChart() {
       },
       scales: {
         x: {
-          grid: { color: 'rgba(255,255,255,0.04)' },
+          grid: { color: 'rgba(37,99,235,0.07)' },
           ticks: { color: '#64748b', font: { family: 'Space Mono', size: 11 } }
         },
         y: {
           min: 10, max: 90,
-          grid: { color: 'rgba(255,255,255,0.04)' },
+          grid: { color: 'rgba(37,99,235,0.07)' },
           ticks: {
             color: '#64748b',
             font: { family: 'Space Mono', size: 11 },
@@ -826,8 +830,8 @@ function renderCityBar(city) {
       plugins: {
         legend: { display: false },
         tooltip: {
-          backgroundColor: '#111827', borderColor: '#1f2d45', borderWidth: 1,
-          titleColor: '#94a3b8', bodyColor: '#e2e8f0', padding: 10,
+          backgroundColor: '#ffffff', borderColor: '#dde6f5', borderWidth: 1,
+          titleColor: '#64748b', bodyColor: '#1e293b', padding: 10,
           callbacks: { label: ctx => ` ${ctx.parsed.y.toFixed(1)}%` }
         }
       },
@@ -838,7 +842,7 @@ function renderCityBar(city) {
         },
         y: {
           min: 0, max: 80,
-          grid: { color: 'rgba(255,255,255,0.04)' },
+          grid: { color: 'rgba(37,99,235,0.07)' },
           ticks: {
             color: '#64748b', font: { family: 'Space Mono', size: 11 },
             callback: v => v + '%', stepSize: 20
@@ -908,14 +912,14 @@ function renderHistogram() {
       plugins: {
         legend: { display: false },
         tooltip: {
-          backgroundColor: '#111827', borderColor: '#1f2d45', borderWidth: 1,
-          titleColor: '#94a3b8', bodyColor: '#e2e8f0',
+          backgroundColor: '#ffffff', borderColor: '#dde6f5', borderWidth: 1,
+          titleColor: '#64748b', bodyColor: '#1e293b',
           callbacks: { title: ctx => ctx[0].label + '%', label: ctx => ` ${ctx.parsed.y}개 지역` }
         }
       },
       scales: {
         x: { grid: { display: false }, ticks: { color: '#64748b', font: { family: 'Space Mono', size: 9 }, maxRotation: 45 } },
-        y: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#64748b', font: { family: 'Space Mono', size: 11 }, stepSize: 10 } }
+        y: { grid: { color: 'rgba(37,99,235,0.07)' }, ticks: { color: '#64748b', font: { family: 'Space Mono', size: 11 }, stepSize: 10 } }
       }
     }
   });
@@ -935,11 +939,11 @@ function renderAvgTrend() {
       datasets: [{
         label: '전국 평균',
         data: avgByTime,
-        borderColor: '#3b82f6',
-        backgroundColor: 'rgba(59,130,246,0.08)',
+        borderColor: '#2563eb',
+        backgroundColor: 'rgba(37,99,235,0.08)',
         borderWidth: 2.5,
         pointRadius: 5,
-        pointBackgroundColor: '#3b82f6',
+        pointBackgroundColor: '#2563eb',
         tension: 0.4,
         fill: true,
       }]
@@ -949,16 +953,16 @@ function renderAvgTrend() {
       plugins: {
         legend: { display: false },
         tooltip: {
-          backgroundColor: '#111827', borderColor: '#1f2d45', borderWidth: 1,
-          titleColor: '#94a3b8', bodyColor: '#e2e8f0',
+          backgroundColor: '#ffffff', borderColor: '#dde6f5', borderWidth: 1,
+          titleColor: '#64748b', bodyColor: '#1e293b',
           callbacks: { label: ctx => ` 전국 평균: ${ctx.parsed.y}%` }
         }
       },
       scales: {
-        x: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#64748b', font: { family: 'Space Mono', size: 10 } } },
+        x: { grid: { color: 'rgba(37,99,235,0.07)' }, ticks: { color: '#64748b', font: { family: 'Space Mono', size: 10 } } },
         y: {
           min: 38, max: 46,
-          grid: { color: 'rgba(255,255,255,0.04)' },
+          grid: { color: 'rgba(37,99,235,0.07)' },
           ticks: { color: '#64748b', font: { family: 'Space Mono', size: 11 }, callback: v => v + '%' }
         }
       }
